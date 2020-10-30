@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Map;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import com.google.gson.Gson;
@@ -14,6 +16,10 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
+
+import models.Entity;
+
+
 
 public class JSONImplementation extends API{
 
@@ -37,7 +43,11 @@ public class JSONImplementation extends API{
 		File file = new File("");
 		//Paths.get(file.getAbsolutePath() + filePath)
 		try (Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
-			stream.forEach(s -> contentBuilder.append(s).append("\n"));
+			stream.forEach(new Consumer<String>() {
+				public void accept(String s) {
+					contentBuilder.append(s).append("\n");
+				}
+			});
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -54,36 +64,45 @@ public class JSONImplementation extends API{
 			jr.beginArray();
 			
 			while(jr.hasNext()) {
+				Entity e = new Entity();
 				
 				jr.beginObject();
 				while(jr.hasNext()) {
-					String name = jr.nextName();
-					System.out.println(name);
-					if (jr.nextString().contains("{")) {
-						jr.skipValue();
-					}
 					
+					String name = jr.nextName();
+					
+					if (jr.peek() == JsonToken.BEGIN_OBJECT) {
+						Entity nested = new Entity();
+						jr.beginObject();
+						while (jr.hasNext()) {
+							String name1 = jr.nextName();
+							if (name1.equals("naziv")) {
+								nested.setName(jr.nextString());
+							}else if (name1.equals("id")) {
+								nested.setId(jr.nextString());
+							}else {
+								nested.getProperties().put(name1, jr.nextString());
+							}
+						} e.getEntities().put(name, nested);
+						jr.endObject();
+					}else {
+						String value = jr.nextString();
+						if (name.equals("naziv")) {
+							e.setName(value);
+						}else if (name.equals("id")) {
+							e.setId(value);
+						}else {
+							e.getProperties().put(name, value);
+						}
+						
+					}
 				}
+				entities.add(e);
+				jr.endObject();
 				
-				
-				
-//				jr.beginObject();
-//				while (jr.peek() != JsonToken.END_OBJECT) {
-//					System.out.println(jr.nextName());
-//					System.out.println(jr.nextString());
-//					if (jr.peek() == JsonToken.BEGIN_OBJECT) { /// Kako da proverimo da li je trenutni BeginObject
-//						System.out.println("USAO");
-//						jr.beginObject();
-//						while (jr.peek() != JsonToken.END_OBJECT) {
-//							System.out.println(jr.nextName());
-//							System.out.println(jr.nextString());
-//						}
-//					}
-//					
-//					
-//				}
-//				jr.endObject();
 			}
+			jr.endArray();
+			System.out.println(entities);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

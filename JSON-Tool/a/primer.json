@@ -2,7 +2,12 @@
 	{
 		"id": 1,
 		"naziv": "student",
-		"ime": "pera"
+		"ime": "pera",
+		"Coban":{ 
+			"id":3,
+			"naziv":"asa",
+			"ostalo":"nista"
+		}
 	},
 	{
 		"id": 2,

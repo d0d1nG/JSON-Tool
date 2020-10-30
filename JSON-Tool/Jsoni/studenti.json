@@ -6,8 +6,9 @@
 		"studijski program": "RI",
 		"pas": {
 			"rasa": "labrador",
-			"usvojen":true
-		}
+			"usvojen":"da"
+		},
+		"asa": "masa"
 	},
 	{
 		"ime": "Marko",
