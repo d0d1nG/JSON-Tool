@@ -1,0 +1,150 @@
+[
+	{
+		"ime": "Marko",
+		"prezime": "Markovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI",
+		"pas": {
+			"rasa": "labrador",
+			"usvojen":true
+		}
+	},
+	{
+		"ime": "Marko",
+		"prezime": "Markovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Marko",
+		"prezime": "Markovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Marko",
+		"prezime": "Markovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Milan",
+		"prezime": "Zivkovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Milan",
+		"prezime": "Zivkovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Milan",
+		"prezime": "Zivkovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Milan",
+		"prezime": "Zivkovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Stefan",
+		"prezime": "Stefanovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Stefan",
+		"prezime": "Stefanovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Stefan",
+		"prezime": "Stefanovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Stefan",
+		"prezime": "Stefanovic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Marija",
+		"prezime": "Stanic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Marija",
+		"prezime": "Stanic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Marija",
+		"prezime": "Stanic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Marija",
+		"prezime": "Stanic",
+		"godinaUpisa": "2018",
+		"studijski program": "RN"
+	},
+	{
+		"ime": "Milos",
+		"prezime": "Mitic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Milos",
+		"prezime": "Mitic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Milos",
+		"prezime": "Mitic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Milos",
+		"prezime": "Mitic",
+		"godinaUpisa": "2018",
+		"studijski program": "RI"
+	},
+	{
+		"ime": "Sofija",
+		"prezime": "Zoric",
+		"godinaUpisa": "2018",
+		"studijski program": "S"
+	},
+	{
+		"ime": "Sofija",
+		"prezime": "Zoric",
+		"godinaUpisa": "2018",
+		"studijski program": "S"
+	},
+	{
+		"ime": "Sofija",
+		"prezime": "Zoric",
+		"godinaUpisa": "2018",
+		"studijski program": "S"
+	},
+	{
+		"ime": "Sofija",
+		"prezime": "Zoric",
+		"godinaUpisa": "2018",
+		"studijski program": "S"
+	}
+]
