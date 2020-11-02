@@ -12,6 +12,7 @@
 	{
 		"id": 2,
 		"naziv": "predmet",
-		"predmet": "OOP"
+		"predmet": "OOP",
+		"kuvarica":"smiljka"
 	}
 ]

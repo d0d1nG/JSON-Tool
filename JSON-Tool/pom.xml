@@ -6,7 +6,7 @@
 	<artifactId>JSON-Tool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>JSON-Tool</name>
-
+	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
@@ -15,13 +15,13 @@
 			<version>2.8.5</version>
 		</dependency>
 		<dependency>
-            <groupId>com.sample</groupId>
-            <artifactId>saple</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${pom.basedir}\libs\api.jar</systemPath>
-        </dependency>
-		
-		
+			<groupId>com.sample</groupId>
+			<artifactId>saple</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}\libs\api.jar</systemPath>
+		</dependency>
+
+
 	</dependencies>
 </project>

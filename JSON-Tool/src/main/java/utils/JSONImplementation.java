@@ -3,58 +3,39 @@ package utils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 
 import models.Entity;
+import utils.API;
 
 
 
 public class JSONImplementation extends API{
 
-
-	public Object importFileToObject(String path, Class<?> classOf) {
-
-		String json = fileToString(path);
-		String[] input = json.split("},");
-		//for (String s : input) {
-			System.out.println(input[0]);
-		//}
-		Gson gson = new Gson();
-		Object object = gson.fromJson(json, classOf);
-
-		return null;
+	static {
+		ToolManager.registerManager(new JSONImplementation(), ".json");
 	}
 	
-	private String fileToString(String filePath) {
-
-		final StringBuilder contentBuilder = new StringBuilder();
-		File file = new File("");
-		//Paths.get(file.getAbsolutePath() + filePath)
-		try (Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
-			stream.forEach(new Consumer<String>() {
-				public void accept(String s) {
-					contentBuilder.append(s).append("\n");
-				}
-			});
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return contentBuilder.toString();
+	public JSONImplementation() {
+		super();
 	}
-
+	
 	@Override
 	public void openFile(File file){
 		
@@ -62,7 +43,6 @@ public class JSONImplementation extends API{
 		try {
 			jr = new JsonReader(new FileReader(file));
 			jr.beginArray();
-			
 			while(jr.hasNext()) {
 				Entity e = new Entity();
 				
@@ -113,7 +93,36 @@ public class JSONImplementation extends API{
 			e.printStackTrace();
 		}
 		
+		
 	}
+
+	@Override	/// pokrece se u GUI za instancu API-a
+	public void save(List<Entity> data, String fileName) {
+		try {
+            FileWriter fileWriter = new FileWriter(new File(fileName));
+            JsonArray sArray = new JsonArray();
+            for(Entity e:data) {
+                JsonObject json = new JsonObject();
+                json.addProperty("id",e.getId());
+                json.addProperty("name", e.getName());
+                for (Map.Entry<String,Object> property : e.getProperties().entrySet()) {
+                	json.addProperty(property.getKey(), (String) property.getValue());
+                }
+                for (Map.Entry<String,Entity> entity : e.getEntities().entrySet()) {
+                	json.addProperty(entity.getKey(),  entity.getValue().toString());
+                }
+                sArray.add(json); 
+            }
+            fileWriter.write(sArray.toString());            
+            fileWriter.close();       
+ 
+        } catch (Exception e) {
+ 
+            e.printStackTrace();
+        }
+	}
+
+	
 	
 	
 	
