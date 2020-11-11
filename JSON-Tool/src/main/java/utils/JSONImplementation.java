@@ -29,7 +29,7 @@ import utils.JSONImplementation;
 
 
 public class JSONImplementation extends API {
-	public String a;
+	public String aa;
 	static {
 		ToolManager.registerManager(new JSONImplementation(), ".json");
 	}
