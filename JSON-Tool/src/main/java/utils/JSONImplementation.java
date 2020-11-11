@@ -53,7 +53,7 @@ public class JSONImplementation extends API {
 
 					String name = jr.nextName();
 
-					if (jr.peek() == JsonToken.BEGIN_OBJECT) {
+					if (jr.peek() == JsonToken.BEGIN_OBJECT) { // ugnjezden entitet
 						Entity nested = new Entity();
 						jr.beginObject();
 						while (jr.hasNext()) {
@@ -64,7 +64,6 @@ public class JSONImplementation extends API {
 							} else if (name1.equals("id")) {
 								nested.setId(jr.nextString());
 							} else {
-								System.out.println("usao");
 								nested.getProperties().put(name1, jr.nextString());
 							}
 						}
